@@ -2,7 +2,7 @@
   "name": "autima-car-backend",
   "version": "1.0.0",
   "engines": {
-    "node": ">=8.0.0"
+    "node": "14.19.3"
   },
   "description": "",
   "main": "index.js",
