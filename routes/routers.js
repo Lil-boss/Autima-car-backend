@@ -7,11 +7,11 @@ const authentication = require('../Middleware/middleware');
 router.get("/auth", authHeader.auth);
 
 //Products
-router.get("/products", authentication, productController.getProducts);
-router.post("/products", authentication, productController.createProduct);
+router.get("/products", productController.getProducts);
+router.post("/products", productController.createProduct);
 
 //Users
-router.get("/users", authentication, userController.getAllUsers);
-router.post("/users", authentication, userController.createUser);
+router.get("/users", userController.getAllUsers);
+router.post("/users", userController.createUser);
 
 module.exports = router;
