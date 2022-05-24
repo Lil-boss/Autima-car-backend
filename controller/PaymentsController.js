@@ -1,13 +1,16 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const createPayment = async (req, res) => {
     try {
-        const payment = {
-            amount: req.body.amount * 100,
+        const price = req.body.amount;
+        const amount = Number(price)
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: amount,
             currency: 'usd',
-            payment_method: ['card'],
-        };
-        const paymentIntent = await stripe.paymentIntents.create(payment);
-        req.send({ client_secret: paymentIntent.client_secret });
+            payment_method_types: ['card'],
+        })
+        res.status(200).json({
+            clientSecret: paymentIntent.client_secret,
+        });
     } catch (error) {
         res.status(500).json({
             status: 500,
