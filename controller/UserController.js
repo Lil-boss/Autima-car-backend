@@ -27,7 +27,10 @@ const createUser = async (req, res) => {
         const user = new userModel({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            education: req.body.education,
+            address: req.body.address,
+            phone: req.body.phone,
+            socialLinks: req.body.socialLinks,
             isAdmin: req.body.isAdmin
         })
         await user.save();
