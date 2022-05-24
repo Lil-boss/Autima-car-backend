@@ -19,6 +19,25 @@ const getAllUsers = async (req, res) => {
     }
 }
 
+//GET //api/v1/users/:id
+const getUserById = async (req, res) => {
+    try {
+        await userModel.findById(req.params.id)
+            .then(user => {
+                res.status(200).json({
+                    status: 200,
+                    data: user
+                })
+            })
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            error: error
+        })
+    }
+}
+
+
 
 //POST //api/v1/users
 
@@ -46,8 +65,47 @@ const createUser = async (req, res) => {
     }
 }
 
+//PUT //api/v1/users/:id
+const updateUser = async (req, res) => {
+    try {
+        await userModel.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+            .then(user => {
+                res.status(200).json({
+                    status: 200,
+                    data: user
+                })
+            })
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            error: error
+        })
+    }
+}
+
+//delete //api/v1/users/:id
+const deleteUser = async (req, res) => {
+    try {
+        await userModel.findByIdAndDelete(req.params.id)
+            .then(user => {
+                res.status(200).json({
+                    status: 200,
+                    data: user
+                })
+            })
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            error: error
+        })
+    }
+}
+
 
 module.exports = {
     getAllUsers,
-    createUser
+    getUserById,
+    createUser,
+    updateUser,
+    deleteUser
 }
