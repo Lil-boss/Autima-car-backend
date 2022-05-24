@@ -67,16 +67,9 @@ const createProduct = async (req, res) => {
 //PUT //products/:id
 const updateProduct = async (req, res) => {
     try {
-        await productModel.findByIdAndUpdate(req.params.id, {
-            $set: {
-                productName: req.body.productName,
-                description: req.body.description,
-                price: req.body.price,
-                qty: req.body.qty,
-                image: req.body.image,
-                totalPrice: req.body.totalPrice
-            }
-        })
+        await productModel.findByIdAndUpdate(req.params.id,
+            { $set: req.body }, { new: true }
+        )
             .then(product => {
                 res.status(200).json({
                     status: 200,
