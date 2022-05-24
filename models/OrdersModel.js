@@ -9,7 +9,7 @@ const orderSchema = new mongoose.Schema({
     phone: { type: String, required: true },
     address: { type: String, required: true },
     isDeliver: { type: Boolean, default: false },
-    isPay: { type: Boolean, default: false },
+    isPaid: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model('Orders', orderSchema);
