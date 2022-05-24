@@ -98,3 +98,12 @@ const deleteOrder = async (req, res) => {
         })
     }
 }
+
+
+module.exports = {
+    getOrders,
+    getOrderById,
+    createOrder,
+    updateOrder,
+    deleteOrder
+}

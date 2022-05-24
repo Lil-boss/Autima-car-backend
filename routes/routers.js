@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const productController = require('../controller/ProductController');
 const userController = require('../controller/UserController');
+const orderController = require('../controller/OrderController');
 const authHeader = require('../Authentication/auth');
 const authentication = require('../Middleware/middleware');
 //auth
@@ -16,5 +17,12 @@ router.delete("/product/:id", productController.deleteProduct);
 //Users
 router.get("/users", userController.getAllUsers);
 router.post("/users", userController.createUser);
+
+//orders
+router.get("/orders", orderController.getOrders);
+router.get("/order/:id", orderController.getOrderById);
+router.post("/orders", orderController.createOrder);
+router.put("/order/:id", orderController.updateOrder);
+router.delete("/order/:id", orderController.deleteOrder);
 
 module.exports = router;
