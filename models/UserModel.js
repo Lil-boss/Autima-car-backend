@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
     address: { type: String },
     phone: { type: String },
     socialLinks: { type: String },
-    education: { type: String },
     isAdmin: { type: Boolean, default: false },
 });
 
