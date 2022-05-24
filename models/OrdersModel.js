@@ -6,6 +6,7 @@ const orderSchema = new mongoose.Schema({
     productName: { type: String, required: true },
     price: { type: String, required: true },
     qty: { type: String, required: true },
+    total: { type: String, required: true },
     phone: { type: String, required: true },
     address: { type: String, required: true },
     isDeliver: { type: Boolean, default: false },

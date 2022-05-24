@@ -45,6 +45,7 @@ const createOrder = async (req, res) => {
             productName: req.body.productName,
             price: req.body.price,
             qty: req.body.qty,
+            total: req.body.total,
             phone: req.body.phone,
             address: req.body.address,
             isDeliver: req.body.isDeliver,
