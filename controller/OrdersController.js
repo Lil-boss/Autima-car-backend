@@ -48,7 +48,7 @@ const createOrder = async (req, res) => {
             phone: req.body.phone,
             address: req.body.address,
             isDeliver: req.body.isDeliver,
-            isPay: req.body.isPay
+            isPaid: req.body.isPay
         })
         await order.save();
         res.status(201).json({
