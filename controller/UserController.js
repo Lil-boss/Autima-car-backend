@@ -37,6 +37,24 @@ const getUserById = async (req, res) => {
     }
 }
 
+//Get //api/v1/users/:email
+
+const getUserByEmail = async (req, res) => {
+    try {
+        await userModel.find({ email: req.params.email })
+            .then(user => {
+                res.status(200).json({
+                    status: 200,
+                    data: user
+                })
+            })
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            error: error
+        })
+    }
+}
 
 
 //POST //api/v1/users
@@ -105,6 +123,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
     getAllUsers,
     getUserById,
+    getUserByEmail,
     createUser,
     updateUser,
     deleteUser

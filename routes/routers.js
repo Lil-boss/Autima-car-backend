@@ -16,6 +16,7 @@ router.delete("/product/:id", productController.deleteProduct);
 
 //Users
 router.get("/users", userController.getAllUsers);
+router.get("/user/:email", userController.getUserByEmail);
 router.post("/users", userController.createUser);
 router.get("/user/:id", userController.getUserById);
 router.put("/user/:id", userController.updateUser);
