@@ -4,9 +4,11 @@ const userController = require('../controller/UserController');
 const orderController = require('../controller/OrdersController');
 const authHeader = require('../Authentication/auth');
 const authentication = require('../Middleware/middleware');
+const paymentController = require('../controller/PaymentsController');
 //auth
 router.get("/auth", authHeader.auth);
-
+//payments
+router.post("/create-payment-intent", paymentController.createPayment);
 //Products
 router.get("/products", productController.getProducts);
 router.get("/product/:id", productController.getProductById);
