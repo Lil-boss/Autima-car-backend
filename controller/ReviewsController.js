@@ -2,22 +2,36 @@ const reviewModel = require('../models/ReviewsModel');
 
 //Get //reviews
 const getReviews = async (req, res) => {
-    await reviewModel.find((err, reviews) => {
-        if (err) {
-            res.status(500).send(err);
-        }
-        res.status(200).json(reviews);
-    });
+    try {
+        await reviewModel.find()
+            .then(reviews => {
+                res.status(200).json({
+                    status: 200,
+                    data: reviews
+                })
+            })
+    } catch (err) {
+        res.status(500).send({
+            message: err.message
+        });
+    }
 }
 
 //Get //reviews/:id
 const getReviewById = async (req, res) => {
-    await reviewModel.findById(req.params.id, (err, review) => {
-        if (err) {
-            res.status(500).send(err);
-        }
-        res.status(200).json(review);
-    });
+    try {
+        await reviewModel.findById(req.params.id)
+            .then(review => {
+                res.status(200).json({
+                    status: 200,
+                    data: review
+                })
+            })
+    } catch (err) {
+        res.status(500).send({
+            message: err.message
+        });
+    }
 }
 
 //Post //reviews
@@ -29,22 +43,36 @@ const addReview = async (req, res) => {
         reviewDes: req.body.reviewDes,
         rating: req.body.rating
     })
-    await newReview.save((err, review) => {
-        if (err) {
-            res.status(500).send(err);
-        }
-        res.status(200).json(review);
-    });
+    try {
+        await newReview.save()
+            .then(review => {
+                res.status(200).json({
+                    status: 200,
+                    data: review
+                })
+            })
+    } catch (err) {
+        res.status(500).send({
+            message: err.message
+        });
+    }
 }
 
 //delete //reviews/:id
 const deleteReview = async (req, res) => {
-    await reviewModel.findByIdAndRemove(req.params.id, (err, review) => {
-        if (err) {
-            res.status(500).send(err);
-        }
-        res.status(200).json(review);
-    });
+    try {
+        await reviewModel.findByIdAndDelete(req.params.id)
+            .then(review => {
+                res.status(200).json({
+                    status: 200,
+                    data: review
+                })
+            })
+    } catch (err) {
+        res.status(500).send({
+            message: err.message
+        });
+    }
 }
 
 module.exports = {
