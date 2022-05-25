@@ -39,13 +39,8 @@ const getOrderById = async (req, res) => {
 //GET //oder by email
 const getOrderByEmail = async (req, res) => {
     try {
-        await ordersModel.find({ email: req.params.email })
-            .then(order => {
-                res.status(200).json({
-                    status: 200,
-                    data: order
-                })
-            })
+        const order = await ordersModel.find({ email: req.params.email });
+        res.status(200).json(order);
     } catch (error) {
         res.status(500).json({
             status: 500,

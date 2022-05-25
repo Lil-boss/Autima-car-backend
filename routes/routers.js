@@ -42,7 +42,7 @@ router.delete("/user/:id", userController.deleteUser);
 //orders
 router.get("/orders", authentication, orderController.getOrders);
 router.get("/order/:id", orderController.getOrderById);
-router.get("/order/:email", orderController.getOrderByEmail);
+router.get("/orders/:email", orderController.getOrderByEmail);
 router.post("/orders", orderController.createOrder);
 router.put("/order/:id", orderController.updateOrder);
 router.delete("/order/:id", orderController.deleteOrder);
