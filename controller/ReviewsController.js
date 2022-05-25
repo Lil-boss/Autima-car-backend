@@ -34,6 +34,23 @@ const getReviewById = async (req, res) => {
     }
 }
 
+
+//Get //reviews/:email
+const getReviewByEmail = async (req, res) => {
+    try {
+        await reviewModel.find({ email: req.params.email })
+            .then(review => {
+                res.status(200).json({
+                    status: 200,
+                    data: review
+                })
+            })
+    } catch (err) {
+        res.status(500).send({
+            message: err.message
+        });
+    }
+}
 //Post //reviews
 const addReview = async (req, res) => {
     const newReview = new reviewModel({
@@ -78,6 +95,7 @@ const deleteReview = async (req, res) => {
 module.exports = {
     getReviews,
     getReviewById,
+    getReviewByEmail,
     addReview,
     deleteReview
 }

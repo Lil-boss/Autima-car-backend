@@ -42,6 +42,7 @@ router.delete("/user/:id", authentication, userController.deleteUser);
 //orders
 router.get("/orders", authentication, orderController.getOrders);
 router.get("/order/:id", authentication, orderController.getOrderById);
+router.get("/order/:email", authentication, orderController.getOrderByEmail);
 router.post("/orders", authentication, orderController.createOrder);
 router.put("/order/:id", authentication, orderController.updateOrder);
 router.delete("/order/:id", authentication, orderController.deleteOrder);
@@ -49,6 +50,7 @@ router.delete("/order/:id", authentication, orderController.deleteOrder);
 //reviews
 router.get("/reviews", authentication, reviewController.getReviews);
 router.get("/review/:id", authentication, reviewController.getReviewById);
+router.get("/review/:email", authentication, reviewController.getReviewByEmail);
 router.post("/reviews", authentication, reviewController.addReview);
 router.delete("/review/:id", authentication, reviewController.deleteReview);
 

@@ -36,6 +36,25 @@ const getOrderById = async (req, res) => {
     }
 }
 
+//GET //oder by email
+const getOrderByEmail = async (req, res) => {
+    try {
+        await ordersModel.find({ email: req.params.email })
+            .then(order => {
+                res.status(200).json({
+                    status: 200,
+                    data: order
+                })
+            })
+    } catch (error) {
+        res.status(500).json({
+            status: 500,
+            error: error
+        })
+    }
+}
+
+
 //POST /orders
 const createOrder = async (req, res) => {
     try {
@@ -104,6 +123,7 @@ const deleteOrder = async (req, res) => {
 module.exports = {
     getOrders,
     getOrderById,
+    getOrderByEmail,
     createOrder,
     updateOrder,
     deleteOrder
