@@ -50,7 +50,7 @@ router.delete("/order/:id", orderController.deleteOrder);
 //reviews
 router.get("/reviews", authentication, reviewController.getReviews);
 router.get("/review/:id", authentication, reviewController.getReviewById);
-router.get("/review/:email", authentication, reviewController.getReviewByEmail);
+router.get("/reviews/:email", authentication, reviewController.getReviewByEmail);
 router.post("/reviews", reviewController.addReview);
 router.delete("/review/:id", reviewController.deleteReview);
 
