@@ -25,31 +25,31 @@ router.post("/create-payment-intent", paymentController.createPayment);
 
 //Products
 router.get("/products", authentication, productController.getProducts);
-router.get("/product/:id", productController.getProductById);
-router.post("/products", productController.createProduct);
-router.put("/product/:id", productController.updateProduct);
-router.delete("/product/:id", productController.deleteProduct);
+router.get("/product/:id", authentication, productController.getProductById);
+router.post("/products", authentication, productController.createProduct);
+router.put("/product/:id", authentication, productController.updateProduct);
+router.delete("/product/:id", authentication, productController.deleteProduct);
 
 //Users
-router.get("/users", userController.getAllUsers);
-router.get("/user/:email", userController.getUserByEmail);
-router.post("/users", userController.createUser);
-router.get("/user/:id", userController.getUserById);
-router.put("/user/:id", userController.updateUser);
-router.delete("/user/:id", userController.deleteUser);
+router.get("/users", authentication, userController.getAllUsers);
+router.get("/user/:email", authentication, userController.getUserByEmail);
+router.post("/users", authentication, userController.createUser);
+router.get("/user/:id", authentication, userController.getUserById);
+router.put("/user/:id", authentication, userController.updateUser);
+router.delete("/user/:id", authentication, userController.deleteUser);
 
 
 //orders
-router.get("/orders", orderController.getOrders);
-router.get("/order/:id", orderController.getOrderById);
-router.post("/orders", orderController.createOrder);
-router.put("/order/:id", orderController.updateOrder);
-router.delete("/order/:id", orderController.deleteOrder);
+router.get("/orders", authentication, orderController.getOrders);
+router.get("/order/:id", authentication, orderController.getOrderById);
+router.post("/orders", authentication, orderController.createOrder);
+router.put("/order/:id", authentication, orderController.updateOrder);
+router.delete("/order/:id", authentication, orderController.deleteOrder);
 
 //reviews
-router.get("/reviews", reviewController.getReviews);
-router.get("/review/:id", reviewController.getReviewById);
-router.post("/reviews", reviewController.addReview);
-router.delete("/review/:id", reviewController.deleteReview);
+router.get("/reviews", authentication, reviewController.getReviews);
+router.get("/review/:id", authentication, reviewController.getReviewById);
+router.post("/reviews", authentication, reviewController.addReview);
+router.delete("/review/:id", authentication, reviewController.deleteReview);
 
 module.exports = router;
