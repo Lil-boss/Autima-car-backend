@@ -49,8 +49,8 @@ router.delete("/order/:id", orderController.deleteOrder);
 
 //reviews
 router.get("/reviews", authentication, reviewController.getReviews);
-router.get("/review/:id", authentication, reviewController.getReviewById);
-router.get("/reviews/:email", authentication, reviewController.getReviewByEmail);
+router.get("/review/:id", reviewController.getReviewById);
+router.get("/reviews/:email", reviewController.getReviewByEmail);
 router.post("/reviews", reviewController.addReview);
 router.delete("/review/:id", reviewController.deleteReview);
 
