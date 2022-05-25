@@ -8,7 +8,7 @@ const paymentController = require('../controller/PaymentsController');
 const reviewController = require('../controller/ReviewsController');
 
 //auth
-router.get("/auth", authHeader.auth);
+router.post("/auth", authHeader.auth);
 
 //payments
 router.post("/create-payment-intent", paymentController.createPayment);
