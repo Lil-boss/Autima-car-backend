@@ -11,6 +11,7 @@ const orderSchema = new mongoose.Schema({
     address: { type: String, required: true },
     isDeliver: { type: Boolean, default: false },
     isPaid: { type: Boolean, default: false },
+    transitionId: { type: String },
 });
 
 module.exports = mongoose.model('Orders', orderSchema);
