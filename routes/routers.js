@@ -33,7 +33,7 @@ router.delete("/product/:id", authentication, productController.deleteProduct);
 //Users
 router.get("/users", authentication, userController.getAllUsers);
 router.get("/user/:email", authentication, userController.getUserByEmail);
-router.post("/users", authentication, userController.createUser);
+router.post("/users", userController.createUser);
 router.get("/user/:id", authentication, userController.getUserById);
 router.put("/user/:id", authentication, userController.updateUser);
 router.delete("/user/:id", authentication, userController.deleteUser);
